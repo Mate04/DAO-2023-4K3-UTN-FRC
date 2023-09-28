@@ -1,6 +1,7 @@
 from Class.Carga import Carga
 
 class Camion:
+    
     def __init__(self,carga_max:int, patente:str) -> None:
         self.cargas = dict()
         self.estado = True #marca si se encuentra disponible
@@ -41,4 +42,9 @@ class Camion:
     def partir(self):
         if self.listo_para_salir() and self.estado:
             self.estado = False
-        return print('el colectivo esta en camino')
+            self.cargas = dict()
+    def llegar(self):
+        if not self.estado:
+            self.estado = True
+    def estado(self):
+        print('esta no esta de viaje') if self.estado else print('esta de viaje')

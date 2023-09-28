@@ -15,6 +15,5 @@ def main():
     mengo.subirCargar(caja)
     mengo.subirCargar(bidon)
     mengo.subirCargar(packing)
-    print(mengo.pesoTotal())
-    print(mengo.listo_para_salir())
+    mengo.partir()
 main()
