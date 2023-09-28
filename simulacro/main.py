@@ -6,10 +6,15 @@ from Class.Carga import Carga
 
 
 def main():
-    caja = Caja('sexo',8.8)
+    nt = Caja('comida',9)
+    caja = Bidon('petroleo',76,8)
     packing = Packing('metales',10,10,20)
     bidon = Bidon('coca',7,2)
-    mengo = Camion(133,'ABC321')
+    mengo = Camion(780,'ABC321')
+    mengo.subirCargar(nt)
+    mengo.subirCargar(caja)
     mengo.subirCargar(bidon)
     mengo.subirCargar(packing)
+    print(mengo.pesoTotal())
+    print(mengo.listo_para_salir())
 main()

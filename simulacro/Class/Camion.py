@@ -6,7 +6,7 @@ class Camion:
         self.estado = True #marca si se encuentra disponible
         self.patente = patente
         self.carga_max = carga_max
-    def subirCargar(self,Object:Carga):
+    def subirCargar(self,Object:Carga) -> dict:
         try:
             if not isinstance(Object, Carga):
                 raise TypeError("El objeto no pertenece a la clase Carga, ni sus Hijas")
@@ -31,3 +31,14 @@ class Camion:
         for key,value in self.cargas.items():
             pesoTotal += value.peso()
         return pesoTotal
+    def cantidadCargas(self): return len(self.cargas)
+    def listaContenido(self):
+        lista = []
+        for key, values in self.cargas.items():
+            lista.append(values.contenido)
+        return lista
+    def listo_para_salir(self): return (self.pesoTotal()*100)/self.carga_max > 75
+    def partir(self):
+        if self.listo_para_salir() and self.estado:
+            self.estado = False
+        return print('el colectivo esta en camino')
